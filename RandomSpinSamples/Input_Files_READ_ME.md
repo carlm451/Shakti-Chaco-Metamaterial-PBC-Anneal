@@ -5,19 +5,19 @@
 
 row of 4 spins -1/1 for each of the Lx*Ly squares in the lattices
 
--1,1,-1,1
-1,-1,1,-1,
+-1,1,-1,1 \n
+1,-1,1,-1, \n
 ...
 ...
 ...
-1,-1,1,-1
+1,-1,1,-1 \n
 
 ## Spins between back to back triangles 
 
 1/2 = up/down   3/4 = right left   there are Lx*Ly triangle pairs 
 
-1
-4
+1 \n
+4 \n 
 2
 3
 1
