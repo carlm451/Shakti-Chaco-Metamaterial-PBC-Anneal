@@ -1,7 +1,7 @@
 
 # DETAILED OVERVIEW OF .C PROGRAM FOR THE SHAKTI/CHACO METAMATERIAL SPRING NETWORK SIMULATIONS...
 
-##Here is a detailed overview of the main C program for the Shakti/Chaco Mechanical Metamaterial
+## Here is a detailed overview of the main C program for the Shakti/Chaco Mechanical Metamaterial
 Simulation C FILE. 
 
 "Shakti_PBC_Small_Anneal_k2.c"  
@@ -17,7 +17,7 @@ Sorry, I know reading someone elses code is never fun...
 
 if you have questions , please email me carl.merrigan@fulbrightmail.org 
 
-###Good LUCK! 
+### Good LUCK! 
 
 
 
@@ -27,7 +27,7 @@ if you have questions , please email me carl.merrigan@fulbrightmail.org
 include statements at the beginning for needed libraries...
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#function declatations
+# function declatations
 
 	"create_square_cell" and "create_diamdond_cell" these add the nodes/bonds to construct the lattice
 
@@ -37,7 +37,7 @@ include statements at the beginning for needed libraries...
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#main( ) program...
+# main( ) program...
 
 
 parameter defintions 
@@ -52,7 +52,7 @@ parameter defintions
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#file names and opening files for data input and output 
+# file names and opening files for data input and output 
 
 	node_coords_file =  each line is a lisy x1,y1,x2,y2,x3,y3...xNv,yNv,current_step     of all node cooridates at each output time step. last entry is current time step
 
@@ -75,7 +75,7 @@ parameter defintions
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#declare, allocate memory, and initialize variables for all lists and arrays in the main program
+# declare, allocate memory, and initialize variables for all lists and arrays in the main program
 
 in c everything has to be declared, defined very precisely.  
 
@@ -102,7 +102,7 @@ in c everything has to be declared, defined very precisely.
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#input files shakti_ground_state_file and shakti_ground_state_islands_file specify square/ centeral spin values for the initial state
+# input files shakti_ground_state_file and shakti_ground_state_islands_file specify square/ centeral spin values for the initial state
 
 	square_spin_directions[i][j] holds spin values for square spins i = 0,1,2,3 for the spin and j = 0,1,2... Nv-1    (note C indices always start from 0 ) 
 
@@ -111,9 +111,9 @@ in c everything has to be declared, defined very precisely.
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#CREATING the lattice
+# CREATING the lattice
 
-##these loops sweep over all the squares and triangles to add all the nodes and bonds to the appropriate lists/arrays
+## these loops sweep over all the squares and triangles to add all the nodes and bonds to the appropriate lists/arrays
 
 loop over squares for x = 0...Lx for y = 0...Ly  creates squares (0,0) , (0,1) ...(0,Ly) ... (Lx-1,Ly-1). 
 
@@ -134,9 +134,9 @@ the lattice constant is for the prestressed compressed lattice, where all distan
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#Prepare the initial condition 
+# Prepare the initial condition 
 
-##The initial lattice is created in the undeformed state, with everything compressed by factor alpha to implement the prestress....
+## The initial lattice is created in the undeformed state, with everything compressed by factor alpha to implement the prestress....
 
 spin values for squares / triangles read in from files are applied to the appropriate edges
 
@@ -144,9 +144,9 @@ spin values for squares / triangles read in from files are applied to the approp
 this is the section of the code where randomization of the intial node positions could also be applied. 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
-#MAIN PROGRAM LOOP         
+# MAIN PROGRAM LOOP         
 
-##finally after all the preparation, here is the main simulation loop implementing the gradient descent energy minimization algorithm 
+## finally after all the preparation, here is the main simulation loop implementing the gradient descent energy minimization algorithm 
 
 all updates take place within a large while loop 
 
@@ -176,7 +176,7 @@ Loop over all nodes to update the positions, after the updates have all been cal
 	2. output the "coords" values to the coordinates value at desired output intervals  "output_step_size" 
 
 
-###Energy Output step
+### Energy Output step
 
 	at desired intervals, compute and output the total energy (= sum all bonds ) and the average energy of squares/triangles
 
@@ -191,7 +191,7 @@ Loop over all nodes to update the positions, after the updates have all been cal
 	This the convention ensures that summing the energy of all squares and all triangles give back the total energy = sum of all bond energies 
 
 
-###ANNEALING PROTOCOL:  (slowly increasing k2/k1 and letting the energy relax between increments ...) 
+### ANNEALING PROTOCOL:  (slowly increasing k2/k1 and letting the energy relax between increments ...) 
 
 	inside the MAIN LOOP is an if statement for incrementing the value of k2 at desired steps.....
 
@@ -212,11 +212,11 @@ Loop over all nodes to update the positions, after the updates have all been cal
 	}
 
 
-###COMMENT out this section to have a simulation with fixed k2, k4 values for all time..                        
+### COMMENT out this section to have a simulation with fixed k2, k4 values for all time..                        
 
-###CAUTION: I coded the annealing protocol assuming k2 = k4 , so things might not work if different values are used for the triangle internal bonds k4. 
+#### CAUTION: I coded the annealing protocol assuming k2 = k4 , so things might not work if different values are used for the triangle internal bonds k4. 
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#code after the int main( ... ) program loop gives all the needed function defitions. 
+# code after the int main( ... ) program loop gives all the needed function defitions. 
