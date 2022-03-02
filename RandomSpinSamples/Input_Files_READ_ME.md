@@ -25,3 +25,16 @@ row of 4 spins -1/1 for each of the Lx*Ly squares in the lattices
 1
 3
 ....
+
+
+## I have included the starting file for the 4 x 4 PBC lattice in the paper
+
+0 = the mechanical ground state
+
+2,6,7 = special ordered higher energy states (not used in the paper) 
+
+177, 5001-5005 These are unpaired defect states based on the magnetic Shakti Ground states
+
+8001-8005  These are randomly oriented squares , central spins chosen randomly
+
+12001-12005 THere are randomly chosen spin values 
