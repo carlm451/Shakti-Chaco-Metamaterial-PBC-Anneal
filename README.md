@@ -1,4 +1,15 @@
 # Shakti-Chaco-Metamaterial-PBC-Anneal
+
+Code for my project on spin-ice inspired metamaterials in the lab of [Yair Shokef](https://shokef.tau.ac.il/index.php/research) at Tel Aviv University. 
+
+Please see our papers on the Arxiv for background : 
+
+[Square spin-ice metamaterial and dynamic hysteresis](https://doi.org/10.48550/arXiv.2010.05227)
+
+[Chaco metamaterial inspired by frustrated Shakti artificial spin ice](
+https://doi.org/10.48550/arXiv.2204.04000)
+
+
 C Code for Shakti/Chaco Metamaterial Simulations, Gradient Descent, PBC, "Anneal " Version k2 increases slowly 
 
 # Main files:
